@@ -1,10 +1,8 @@
 ## Observation summary: Ember Simple Auth
 
 
-1. **Spoofing the External Web Application External Entity**
-
-**Mitigation strategy:** Use of standard authentication mechanism.
-
+1. **Spoofing the External Web Application External Entity** 
+**Mitigation strategy:** Use of standard authentication mechanism. 
 **Observation:**  Ember Simple Auth implements standard authenticators like  OAuth 2, Torii, etc. Hence, it mitigates this threat. 
 
 2. **Cross Site Scripting**
