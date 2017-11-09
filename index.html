@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body>﻿
+	 
+<div><h1>Threat Modeling Report</h1><span>
+          Created on 11/8/2017 11:11:05 PM</span><p><strong>Threat Model Name: </strong></p><p><strong>Owner: </strong></p><p><strong>Reviewer: </strong></p><p><strong>Contributors: </strong></p><p><strong>Description: </strong></p><p><strong>Assumptions: </strong></p><p><strong>External Dependencies: </strong></p><br><h3>Threat Model Summary:</h3><table><tr><td>Not Started</td><td>0</td></tr><tr><td>Not Applicable</td><td>6</td></tr><tr><td>Needs Investigation</td><td>16</td></tr><tr><td>Mitigation Implemented</td><td>17</td></tr><tr><td>Total</td><td>39</td></tr><tr><td>Total Migrated</td><td>0</td></tr></table><p><hr><h2>
+            Diagram: Diagram 1</h2><img alt="Diagram 1 diagram screenshot
+            "><h3>Diagram 1 Diagram Summary:
+          </h3><table><tr><td>Not Started</td><td>0</td></tr><tr><td>Not Applicable</td><td>6</td></tr><tr><td>Needs Investigation</td><td>16</td></tr><tr><td>Mitigation Implemented</td><td>17</td></tr><tr><td>Total</td><td>39</td></tr><tr><td>Total Migrated</td><td>0</td></tr></table><h3>
+      Interaction: Input data</h3><img alt="Input data interaction screenshot
+      "><div><h4><span>1. Spoofing the External Web Application External Entity</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>External Web Application may be spoofed by an attacker and this may lead to unauthorized access to 1.0 Ember simple auth. Consider using a standard authentication mechanism to identify the external entity.</td></tr><tr><td><strong>Justification:</strong></td><td>Use of standard authentication mechanism.</td></tr></table></div><div><h4><span>2. Cross Site Scripting</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Tampering</td></tr><tr><td><strong>Description:</strong></td><td>&#39;1.0 Ember simple auth&#39; could be a subject to a cross-site scripting attack because it does not sanitize untrusted input.</td></tr><tr><td><strong>Justification:</strong></td><td>Sanitize user inputs. </td></tr></table></div><div><h4><span>3. Elevation Using Impersonation</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth may be able to impersonate the context of External Web Application in order to gain additional privilege.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authorization.</td></tr></table></div><div><h4><span>4. Potential Data Repudiation by 1.0 Ember simple auth</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs to record the source, time, and summary of received data and exception handling.</td></tr></table></div><div><h4><span>5. Potential Process Crash or Stop for 1.0 Ember simple auth</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth crashes, halts, stops or runs slowly; in all cases violating an availability metric.</td></tr><tr><td><strong>Justification:</strong></td><td>Give ember simple auth access to same resources as external web application</td></tr></table></div><div><h4><span>6. Data Flow Input data Is Potentially Interrupted</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>No interactions via any unsecure channels.</td></tr></table></div><div><h4><span>7. 1.0 Ember simple auth May be Subject to Elevation of Privilege Using Remote Code Execution</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>External Web Application may be able to remotely execute code for 1.0 Ember simple auth.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authentication.</td></tr></table></div><div><h4><span>8. Elevation by Changing the Execution Flow in 1.0 Ember simple auth</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>An attacker may pass data into 1.0 Ember simple auth in order to change the flow of program execution within 1.0 Ember simple auth to the attacker&#39;s choosing.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authentication and authorize every request.</td></tr></table></div><br><h3>
+      Interaction: Response data</h3><img alt="Response data interaction screenshot
+      "><div><h4><span>9. Spoofing of the External Web Application External Destination Entity</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>External Web Application may be spoofed by an attacker and this may lead to data being sent to the attacker&#39;s target instead of External Web Application.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authenticators. </td></tr></table></div><div><h4><span>10. External Entity External Web Application Potentially Denies Receiving Data</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>External Web Application claims that it did not receive data from a process on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs or audits to record the source, time or summary of sent data and exception handling.</td></tr></table></div><div><h4><span>11. Data Flow Response data Is Potentially Interrupted</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authorizers.</td></tr></table></div><br><h3>
+      Interaction: Session request</h3><img alt="Session request interaction screenshot
+      "><div><h4><span>12. Spoofing of Destination Data Store Local storage</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>Session storage may be spoofed by an attacker and this may lead to data being written to the attacker&#39;s target instead of Session storage.</td></tr><tr><td><strong>Justification:</strong></td><td>Standard authentication mechanism to identify the session store. </td></tr></table></div><div><h4><span>13. Potential Excessive Resource Consumption for 1.0 Ember simple auth or Local storage</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>Does 1.0 Ember simple auth or Local storage take explicit steps to control resource consumption? Resource consumption attacks can be hard to deal with, and there are times that it makes sense to let the OS do the job. Be careful that your resource requests don&#39;t deadlock, and that they do timeout.</td></tr><tr><td><strong>Justification:</strong></td><td>Set time limits in web application to access the resource.</td></tr></table></div><div><h4><span>14. Spoofing the 1.0 Ember simple auth Process</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth may be spoofed by an attacker and this may lead to unauthorized access to Local storage. Consider using a standard authentication mechanism to identify the source process.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authentication.</td></tr></table></div><div><h4><span>15. The Local storage Data Store Could Be Corrupted</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Tampering</td></tr><tr><td><strong>Description:</strong></td><td>Data flowing across Session request may be tampered with by an attacker. This may lead to corruption of Local storage. Ensure the integrity of the data flow to the data store.</td></tr><tr><td><strong>Justification:</strong></td><td>Validation of data received by the Session storage.</td></tr></table></div><div><h4><span>16. Data Store Denies Local storage Potentially Writing Data</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>Session storage claims that it did not write data received from an entity on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs or audits to record the source, time or summary of sent data.</td></tr></table></div><div><h4><span>17. Data Flow Session request Is Potentially Interrupted</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>Require authentication to access session stores.</td></tr></table></div><div><h4><span>18. Data Store Inaccessible</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent prevents access to a data store on the other side of the trust boundary.</td></tr><tr><td><strong>Justification:</strong></td><td>Encrypt session stores.</td></tr></table></div><br><h3>
+      Interaction: Session response</h3><img alt="Session response interaction screenshot
+      "><div><h4><span>19. Spoofing of Source Data Store Local storage</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>Session storage may be spoofed by an attacker and this may lead to incorrect data delivered to 1.0 Ember simple auth. Consider using a standard authentication mechanism to identify the source data store.</td></tr><tr><td><strong>Justification:</strong></td><td>Standard authentication to identify valid Session store. </td></tr></table></div><div><h4><span>20. Cross Site Scripting</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Tampering</td></tr><tr><td><strong>Description:</strong></td><td>&#39;1.0 Ember simple auth&#39; could be a subject to faulty data because it does not sanitize untrusted input.</td></tr><tr><td><strong>Justification:</strong></td><td>Sanitize inputs and cryptographically protect secrets. </td></tr></table></div><div><h4><span>21. Persistent Cross Site Scripting</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Tampering</td></tr><tr><td><strong>Description:</strong></td><td>&#39;1.0 Ember simple auth&#39; could be a subject to a persistent cross-site scripting attack because it does not sanitize data store &#39;Local storage&#39; inputs and output.</td></tr><tr><td><strong>Justification:</strong></td><td>Validate session data.</td></tr></table></div><div><h4><span>22. Weak Access Control for a Resource</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Information Disclosure</td></tr><tr><td><strong>Description:</strong></td><td>Improper data protection of Session storage can allow an attacker to read information not intended for disclosure. Review authorization settings.</td></tr><tr><td><strong>Justification:</strong></td><td>Use of standard authorization techniques and encrypt stores.</td></tr></table></div><div><h4><span>23. Potential Data Repudiation by 1.0 Ember simple auth</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs or audits to record the source, time or summary of sent data.</td></tr></table></div><div><h4><span>24. Potential Process Crash or Stop for 1.0 Ember simple auth</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth crashes, halts, stops or runs slowly; in all cases violating an availability metric.</td></tr><tr><td><strong>Justification:</strong></td><td>Verify session data.</td></tr></table></div><div><h4><span>25. Data Flow Session response Is Potentially Interrupted</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>Use session store.</td></tr></table></div><div><h4><span>26. Data Store Inaccessible</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent prevents access to a data store on the other side of the trust boundary.</td></tr><tr><td><strong>Justification:</strong></td><td>Use session store.</td></tr></table></div><div><h4><span>27. 1.0 Ember simple auth May be Subject to Elevation of Privilege Using Remote Code Execution</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>Session storage may be able to remotely execute code for 1.0 Ember simple auth.</td></tr><tr><td><strong>Justification:</strong></td><td>Verify session data.</td></tr></table></div><div><h4><span>28. Elevation by Changing the Execution Flow in 1.0 Ember simple auth</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>An attacker may pass data into 1.0 Ember simple auth in order to change the flow of program execution within 1.0 Ember simple auth to the attacker&#39;s choosing.</td></tr><tr><td><strong>Justification:</strong></td><td>Verify session data and implement authorization for every request.</td></tr></table></div><br><h3>
+      Interaction: User data request</h3><img alt="User data request interaction screenshot
+      "><div><h4><span>29. Spoofing of the External API External Destination Entity</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>External API may be spoofed by an attacker and this may lead to data being sent to the attacker&#39;s target instead of External API. Consider using a standard authentication mechanism to identify the external entity.</td></tr><tr><td><strong>Justification:</strong></td><td>Use of standard authentication mechanism.</td></tr></table></div><div><h4><span>30. External Entity External API Potentially Denies Receiving Data</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>External API claims that it did not receive data from a process on the other side of the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs or audits to record the source, time or summary of sent data and exception handling.</td></tr></table></div><div><h4><span>31. Data Flow User data request Is Potentially Interrupted</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>Authorize API requests.</td></tr></table></div><br><h3>
+      Interaction: User data response</h3><img alt="User data response interaction screenshot
+      "><div><h4><span>32. Spoofing the External API External Entity</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Spoofing</td></tr><tr><td><strong>Description:</strong></td><td>External API may be spoofed by an attacker and this may lead to unauthorized access to 1.0 Ember simple auth.</td></tr><tr><td><strong>Justification:</strong></td><td>Use of standard authentication techniques</td></tr></table></div><div><h4><span>33. Cross Site Scripting</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Tampering</td></tr><tr><td><strong>Description:</strong></td><td>&#39;1.0 Ember simple auth&#39; could be a subject to a cross-site scripting attack.</td></tr><tr><td><strong>Justification:</strong></td><td>Sanitize and verify API responses.</td></tr></table></div><div><h4><span>34. Elevation Using Impersonation</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth may be able to impersonate the context of External API in order to gain additional privilege.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authentication.</td></tr></table></div><div><h4><span>35. Potential Data Repudiation by 1.0 Ember simple auth</span> 
+        [State: Mitigation Implemented] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Repudiation</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth claims that it did not receive data from a source outside the trust boundary. Consider using logging or auditing to record the source, time, and summary of the received data.</td></tr><tr><td><strong>Justification:</strong></td><td>Generate logs or audits to record the source, time or summary of sent data.</td></tr></table></div><div><h4><span>36. Potential Process Crash or Stop for 1.0 Ember simple auth</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>1.0 Ember simple auth crashes, halts, stops or runs slowly; in all cases violating an availability metric.</td></tr><tr><td><strong>Justification:</strong></td><td>Validate API responses.</td></tr></table></div><div><h4><span>37. Data Flow User data response Is Potentially Interrupted</span> 
+        [State: Needs Investigation] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Denial Of Service</td></tr><tr><td><strong>Description:</strong></td><td>An external agent interrupts data flowing across a trust boundary in either direction.</td></tr><tr><td><strong>Justification:</strong></td><td>Require authorization to access resources.</td></tr></table></div><div><h4><span>38. 1.0 Ember simple auth May be Subject to Elevation of Privilege Using Remote Code Execution</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>External API may be able to remotely execute code for 1.0 Ember simple auth.</td></tr><tr><td><strong>Justification:</strong></td><td>Verify API responses. </td></tr></table></div><div><h4><span>39. Elevation by Changing the Execution Flow in 1.0 Ember simple auth</span> 
+        [State: Not Applicable] 
+        [Priority: High] 
+        </h4><table><tr><td><strong>Category:</strong></td><td>Elevation Of Privilege</td></tr><tr><td><strong>Description:</strong></td><td>An attacker may pass data into 1.0 Ember simple auth in order to change the flow of program execution within 1.0 Ember simple auth to the attacker&#39;s choosing.</td></tr><tr><td><strong>Justification:</strong></td><td>Implement authentication and authorize every request.</td></tr></table></div><br></p></div></body></html>
