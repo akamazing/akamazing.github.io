@@ -5,23 +5,23 @@
 **Mitigation strategy:** Use of standard authentication mechanism.   
 **Observation:**  Ember Simple Auth implements standard authenticators like  OAuth 2, Torii, etc. Hence, it mitigates this threat. 
 
-2. **Cross Site Scripting**
-**Mitigation strategy:** Sanitize user inputs. 
-**Observation:**  Ember Simple Auth does not sanitize and verify user inputs.
+2. **Cross Site Scripting**  
+**Mitigation strategy:** Sanitize user inputs.   
+**Observation:**  Ember Simple Auth does not sanitize and verify user inputs.   
 
-3. **Potential Data Repudiation by 1.0 Ember simple auth**
-**Mitigation strategy:** Generate logs to record the source, time, and summary of received data and exception handling
-**Observation:** Ember simple auth provides no mechanism to generate or ,store logs. 
+3. **Potential Data Repudiation by 1.0 Ember simple auth**   
+**Mitigation strategy:** Generate logs to record the source, time, and summary of received data and exception handling   
+**Observation:** Ember simple auth provides no mechanism to generate or ,store logs.    
 
-4. **Elevation by Changing the Execution Flow in 1.0 Ember simple auth**
-**Mitigation strategy:** Implement authentication and authorize every request.
-**Observation:** In Ember Simple Auth  data is accepted only from authorized services of web application, thus this attack is mitigated.
+4. **Elevation by Changing the Execution Flow in 1.0 Ember simple auth**   
+**Mitigation strategy:** Implement authentication and authorize every request.   
+**Observation:** In Ember Simple Auth  data is accepted only from authorized services of web application, thus this attack is mitigated.   
 
-5. **Spoofing of the External Web Application External Destination Entity**
-**Mitigation strategy:** Implement authenticators. 
-**Observation:**  Ember Simple Auth uses standard authenticator like OAuth2,  Torii.
+5. **Spoofing of the External Web Application External Destination Entity**   
+**Mitigation strategy:** Implement authenticators.    
+**Observation:**  Ember Simple Auth uses standard authenticator like OAuth2,  Torii.   
 
-6. **External Entity External Web Application Potentially Denies Receiving Data**
+6. **External Entity External Web Application Potentially Denies Receiving Data**   
 **Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data and exception handling.
 **Observation:**  Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist.
 
