@@ -31,7 +31,7 @@
 
 8. **Data Store Denies Local storage Potentially Writing Data**   
 **Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data.   
-**Observation:** Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist.   
+**Observation:** Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist. Alternatively, failed promise handling mechanism could be used to send the request again.   
 
 9. **Spoofing of Source Data Store Local storage**  
 **Mitigation strategy:** Standard authentication to identify valid Session store.   
