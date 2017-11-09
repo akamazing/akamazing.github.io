@@ -1,37 +1,55 @@
-## Welcome to GitHub Pages
+## Observation summary: Ember Simple Auth
 
-You can use the [editor on GitHub](https://github.com/akamazing/akamazing.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. **Spoofing the External Web Application External Entity**
+**Mitigation strategy:** Use of standard authentication mechanism.
+**Observation:**  Ember Simple Auth implements standard authenticators like  OAuth 2, Torii, etc. Hence, it mitigates this threat. 
 
-### Markdown
+2. **Cross Site Scripting**
+**Mitigation strategy:** Sanitize user inputs. 
+**Observation:**  Ember Simple Auth does not sanitize and verify user inputs.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+3. **Potential Data Repudiation by 1.0 Ember simple auth**
+**Mitigation strategy:** Generate logs to record the source, time, and summary of received data and exception handling
+**Observation:** Ember simple auth provides no mechanism to generate or ,store logs. 
 
-```markdown
-Syntax highlighted code block
+4. **Elevation by Changing the Execution Flow in 1.0 Ember simple auth**
+**Mitigation strategy:** Implement authentication and authorize every request.
+**Observation:** In Ember Simple Auth  data is accepted only from authorized services of web application, thus this attack is mitigated.
 
-# Header 1
-## Header 2
-### Header 3
+5. **Spoofing of the External Web Application External Destination Entity**
+**Mitigation strategy:** Implement authenticators. 
+**Observation:**  Ember Simple Auth uses standard authenticator like OAuth2,  Torii.
 
-- Bulleted
-- List
+6. **External Entity External Web Application Potentially Denies Receiving Data**
+**Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data and exception handling.
+**Observation:**  Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist.
 
-1. Numbered
-2. List
+7. **The Local storage Data Store Could Be Corrupted**
+**Mitigation strategy:** Validation of data received from the Session storage.
+**Observation:** Ember Simple Auth does not validate any data received from session storage.
 
-**Bold** and _Italic_ and `Code` text
+8. **Data Store Denies Local storage Potentially Writing Data**
+**Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data.
+**Observation:** Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist.
 
-[Link](url) and ![Image](src)
-```
+9. **Spoofing of Source Data Store Local storage**
+**Mitigation strategy:** Standard authentication to identify valid Session store
+**Observation:** Ember Simple Auth has no authentication mechanism to identify valid data store.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+10. **Potential Data Repudiation by 1.0 Ember simple auth**
+**Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data.
+**Observation:** Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist.
 
-### Jekyll Themes
+11. **Spoofing of the External API External Destination Entity**
+**Mitigation strategy:** Use of standard authentication mechanism.
+**Observation:** Ember Simple Auth uses standard authenticator like OAuth2,  Torii. Hence, this threat is mitigated. 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/akamazing/akamazing.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+12. **External Entity External API Potentially Denies Receiving Data**
+**Mitigation strategy:** Generate logs or audits to record the source, time or summary of sent data and exception handling.
+**Observation:** Ember Simple Auth has no provision to generate logs and audits, to record the source, time or summary of sent data, thus this threat exist. It does provide methods to resolve failed promise so requests can be made again.
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+13. **Spoofing the External API External Entity**
+**Mitigation strategy:** Use of standard authentication techniques.
+**Observation:** Ember Simple Auth has no authentication mechanism to identify valid external API.
+ 
